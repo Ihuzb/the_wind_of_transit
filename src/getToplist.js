@@ -4,7 +4,7 @@
 const {myGet} = global.axios;
 module.exports = async () => {
     try {
-        let list = await myGet('toplist')
+        let list = await myGet('/toplist')
         return list.list.map(v => v.id);
     } catch (err) {
         return [];

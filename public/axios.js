@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 let config = {
-    baseURL: 'http://43.143.203.246:3000/',
+    baseURL: 'http://43.143.203.246:3000',
     timeout: 5 * 60 * 1000, // Timeout
     // withCredentials: true, // Check cross-site Access-Control
 };
