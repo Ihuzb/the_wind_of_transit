@@ -2,7 +2,7 @@
   "name": "the_wind_of_transit",
   "version": "1.0.0",
   "description": "获取榜单音乐热评",
-  "main": "index.js",
+  "main": "dataInfo/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/Ihuzb/the_wind_of_transit#readme",
   "dependencies": {
+    "@koa/cors": "^4.0.0",
     "async": "^3.2.4",
     "axios": "^1.1.2",
+    "koa": "^2.13.4",
+    "koa-router": "^12.0.0",
     "mysql": "^2.18.1",
     "node-schedule": "^2.1.0"
   }

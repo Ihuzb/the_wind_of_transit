@@ -2,12 +2,12 @@
  * 主程序入口
  */
 
-require('./public/axios');
-require('./public/sqlOption');
+require('../public/axios');
+require('../public/sqlOption');
 const async = require('async');
-const getTopList = require('./src/getToplist');
-const getPlaylist = require('./src/getPlaylist');
-const getCommentHot = require('./src/getCommentHot');
+const getTopList = require('../src/getToplist');
+const getPlaylist = require('../src/getPlaylist');
+const getCommentHot = require('../src/getCommentHot');
 const schedule = require('node-schedule');
 
 
