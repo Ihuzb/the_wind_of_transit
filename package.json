@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Ihuzb/the_wind_of_transit#readme",
   "dependencies": {
     "async": "^3.2.4",
-    "axios": "^1.1.2"
+    "axios": "^1.1.2",
+    "mysql": "^2.18.1"
   }
 }
