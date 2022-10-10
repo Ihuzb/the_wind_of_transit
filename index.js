@@ -35,9 +35,9 @@ const getInfo = async () => {
     process.stdout.write(`====== 定时任务结束 ======\n`);
 }
 const rule = new schedule.RecurrenceRule();
-rule.dayOfWeek = [0, 1];
-rule.hour = 14;
-rule.minute = 53;
+rule.dayOfWeek = [0, 3];
+rule.hour = 1;
+rule.minute = 0;
 schedule.scheduleJob(rule, function(){
     getInfo();
 });
