@@ -4,8 +4,8 @@ const connection = mysql.createConnection({
     user: 'root',
     password: 'demo2020',
     port: 3306,
-    database: 'the_wind_of_transit',
+    database: 'book_fold',
     charset:'Utf8mb4',
     useConnectionPooling: true,
 });
-global.sql = connection;
+global.sqlB = connection;
