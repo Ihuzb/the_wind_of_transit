@@ -4,8 +4,8 @@ const KoaBody = require("koa-body")
 const Router = require('koa-router');
 const {
     selectBookList, selectUserInfoOnOpenid,
-    insertAddresList,
-    insertUserBook,
+    insertAddresList, selectUserBookOrgin,
+    insertUserBook, selectUserBookOrginAll,
     insertUserList,
     selectUserBook
 } = require("../sql/sqlListBook");
@@ -22,6 +22,16 @@ global.sqlB.connect();
 router.get('/selectBookList', async (ctx) => {
     let {user_id = ''} = ctx.query;
     let data = await sqlQuery(selectBookList, user_id);
+    ctx.set("Content-Type", "application/json")
+    ctx.type = 'json'
+    ctx.body = {
+        state: 200,
+        data: data || []
+    }
+});
+router.get('/selectUserBookOrgin', async (ctx) => {
+    let {user_orgin = ''} = ctx.query;
+    let data = await sqlQuery(user_orgin ? selectUserBookOrgin : selectUserBookOrginAll, user_orgin);
     ctx.set("Content-Type", "application/json")
     ctx.type = 'json'
     ctx.body = {

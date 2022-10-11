@@ -1,3 +1,7 @@
+const selectUserBookOrginAll = "select user_book.id as user_book_id,ul.user_name,ul.user_img,user_book.user_orgin, bl.*,date_format(bl.create_date, '%Y-%m-%d %H:%i:%s') as create_date\n" +
+    " from user_book" +
+    " left join user_list ul on user_book.user_id = ul.id" +
+    " left join book_list bl on user_book.book_id = bl.id"
 module.exports = {
     selectBookList: "select book_list.*,ub.user_id,ifnull(b.num,0) as user_num from book_list " +
         " left join user_book ub on book_list.id = ub.book_id and ub.user_id=? " +
@@ -6,6 +10,8 @@ module.exports = {
     selectUserBook: "select user_book.user_orgin,user_book.user_id, date_format(user_book.create_date, '%Y-%m-%d %H:%i:%s') as create_date,ul.user_img,ul.user_name  from user_book " +
         "left join user_list ul on user_book.user_id = ul.id where book_id=?;",
     insertUserBook: "insert into user_book set ?;",
+    selectUserBookOrginAll,
+    selectUserBookOrgin: selectUserBookOrginAll + " where user_orgin=?;",
     insertUserList: "insert into user_list set ? ;",
     selectUserInfoOnOpenid: "select * from user_list where user_openid=?;",
     insertAddresList: "insert into addres_list set ?;",
