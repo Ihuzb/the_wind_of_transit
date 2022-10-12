@@ -4,7 +4,7 @@
   "description": "获取榜单音乐热评",
   "main": "dataInfo/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bookFold": "pm2 start ./bookFoldServer/index.js --env production --name bookFoldServer"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "axios": "^1.1.2",
     "koa": "^2.13.4",
     "koa-body": "^5.0.0",
+    "koa-morgan": "^1.0.1",
     "koa-router": "^12.0.0",
     "mysql": "^2.18.1",
     "node-schedule": "^2.1.0"
