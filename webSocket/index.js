@@ -3,11 +3,25 @@ const WebSocket = require('ws');
 
 let wss = new WebSocket.Server({port: 8181});
 let userInfo = {};
+let time = null;
 const setInfo = (info) => {
     let {id} = info;
     userInfo[id] = Object.assign(userInfo[id] || {}, info);
-    console.log(userInfo, 66666)
 }
+// 长时间未使用 删除
+const delInfo = () => {
+    time = setInterval(() => {
+        let getTime = (new Date()).getTime(), userInfoNew = {};
+        for (let key in userInfo) {
+            let timeCha = getTime - userInfo[key].time;
+            if (timeCha < 1000 * 60) {
+                userInfoNew[key] = userInfo[key];
+            }
+        }
+        userInfo = userInfoNew;
+    }, 1000)
+}
+delInfo();
 wss.on('connection', function (ws) {
     console.log('client connected');
     ws.on('message', function (data, isBinary) {
